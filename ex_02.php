@@ -13,7 +13,7 @@ PREG SPLIT_NO_EMPTY);
 //artey reverse() inverto a ordem dos itens do array de
 caracteres
 $caracteresInvertidos = array_reverse($caracteres);
-implodel) junta o array invertido de volta em uma única
+implodel junta o array invertido de volta em uma única
 string
 $textoInvertido implode('', $caracteresInvertidos);
 // strlent) conta corretamente a quantidade de caracteres mes no coll
