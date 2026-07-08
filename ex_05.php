@@ -5,6 +5,7 @@ function analisarTexto($texto) {
     $frequencia = array_count_values($palavras);
     $frequencia = array_count_values($caracteres);
     $frequencia = array_count_values($vogais);
+    $frequencia = array_count_values($consoantes);
     arsort($frequencia);
     return $frequencia;
 }
