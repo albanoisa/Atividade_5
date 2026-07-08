@@ -1,4 +1,5 @@
 <?php
+
 presa de tecnologia está desenvρίνηοδο με 31stone, pare tratamento de textos.
 // Crie una função chanade inverterlestol) que receba uma string e returne o texτα
 //completamente invertido.
