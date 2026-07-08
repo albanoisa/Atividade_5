@@ -12,7 +12,6 @@ function calcularMedia($numeros) {
     } elseif ($media >= 5) {
         return "Recuperação";
     } else {
-        elseif ($media < 5) {
         return "Reprovado";
     }
 }
