@@ -82,3 +82,42 @@ function classificarIMC($imc) {
     return round($valorConvertido, 2);
     return "Este é o valor convertido de uma moeda para outra";
 }
+
+8- function formatarTelefone($telefone) {
+    $telefone = preg_replace('/\D/', '', $telefone);
+    if (strlen($telefone) === 10) {
+        return preg_replace('/(\d{2})(\d{4})(\d{4})/', '($1) $2-$3', $telefone);
+    } elseif (strlen($telefone) === 11) {
+        return preg_replace('/(\d{2})(\d{5})(\d{4})/', '($1) $2-$3', $telefone);
+    } else {
+        return "Número de telefone inválido.";
+    }
+    return "Este é o número de telefone formatado";
+}
+
+9- function saudaçãoHorário() {
+    $horaAtual = date('H');
+    if ($horaAtual < 12) {
+        return "Bom dia!";
+    } elseif ($horaAtual < 18) {
+        return "Boa tarde!";
+    } else {
+        return "Boa noite!";
+    }
+    return "Esta é a saudação de acordo com o horário do dia";
+}
+
+10- function validarSenhaForte($senha) {
+    $temMaiuscula = preg_match('/[A-Z]/', $senha);
+    $temMinuscula = preg_match('/[a-z]/', $senha);
+    $temNumero = preg_match('/[0-9]/', $senha);
+    $temCaractereEspecial = preg_match('/[\W]/', $senha);
+
+    if ($temMaiuscula && $temMinuscula && $temNumero && $temCaractereEspecial && strlen($senha) >= 8) {
+        return true;
+        return "A senha é forte.";
+    } else {
+        return false;
+        return "A senha não é forte.";
+    }
+}
