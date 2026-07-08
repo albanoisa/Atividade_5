@@ -14,3 +14,6 @@ function criptografarMensagem($mensagem, $chave) {
 
     return base64_encode($mensagemCriptografada);
 }
+
+function descriptografarMensagem($mensagemCriptografada, $chave) {
+    $mensagemCriptografada = base64_decode
