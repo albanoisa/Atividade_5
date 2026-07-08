@@ -1,6 +1,6 @@
 <?php
 
-function mascaraCPF($cpf) {
+function mascararCPF($cpf) {
     $cpf = preg_replace('/[^0-9]/', '', $cpf);
     if (strlen($cpf) != 11) {
         return false;
