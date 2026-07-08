@@ -6,7 +6,9 @@ function calcularMedia($numeros) {
     }
     $soma = array_sum($numeros);
     return $soma / count($numeros);
+}
 
+function verificarSituacao($media) {
     if ($media >= 7) {
         return "Aprovado";
     } elseif ($media >= 5) {
