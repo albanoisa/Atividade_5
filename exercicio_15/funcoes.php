@@ -30,4 +30,55 @@ function classificarIMC($imc) {
     }
 }
 
+3- function gerarSenha($tamanho) {
+    $caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=';
+    $senha = '';
+    for ($i = 0; $i < $tamanho; $i++) {
+        $senha .= $caracteres[rand(0, strlen($caracteres) - 1)];
+    }
+    return $senha;
+    return "Esta é a senha aleatoria gerada";
+}
 
+4- function contarVogais($texto) {
+    $texto = strtolower($texto);
+    $vogais = ['a', 'e', 'i', 'o', 'u'];
+    $contador = 0;
+    for ($i = 0; $i < strlen($texto); $i++) {
+        if (in_array($texto[$i], $vogais)) {
+            $contador++;
+        }
+    }
+    return $contador;
+    return "Esta é a quantidade de vogais existentes no texto informado";
+}
+
+5- function inverterTexto($texto) {
+    $textoInvertido = strrev($texto);
+    return $textoInvertido;
+    return "Este é o texto invertido";
+}
+
+6- function calcularIdade($dataNascimento) {
+    $dataNascimento = new DateTime($dataNascimento);
+    $dataAtual = new DateTime();
+    $idade = $dataAtual->diff($dataNascimento)->y;
+    return $idade;
+    return "Esta é a idade calculada a partir da data de nascimento informada";
+}
+
+7- function converterMoeda($valor, $moedaOrigem, $moedaDestino) {
+    $taxasConversao = [
+        'USD' => 1,
+        'EUR' => 0.85,
+        'BRL' => 5.25,
+    ];
+
+    if (!isset($taxasConversao[$moedaOrigem]) || !isset($taxasConversao[$moedaDestino])) {
+        return "Moeda inválida.";
+    }
+
+    $valorConvertido = ($valor / $taxasConversao[$moedaOrigem]) * $taxasConversao[$moedaDestino];
+    return round($valorConvertido, 2);
+    return "Este é o valor convertido de uma moeda para outra";
+}
