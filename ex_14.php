@@ -30,12 +30,27 @@ function estatisticasNumericas($numeros) {
     }
 
     return [
-        'soma' => $soma,
-        'media' => $media,
-        'maior' => $maior,
-        'menor' => $menor,
-        'mediana' => calcularMediana($numeros),
-        'quantidadepares' => contarPares($numeros),
-        'quantidadedeimpares' => contarImpares($numeros)
+        "soma" => $soma,
+        "media" => $media,
+        "maior" => $maiorValor,
+        "menor" => $menorValor,
+        "mediana" => $mediana,
+        "pares" => $quantidadePares,
+        "impares" => $quantidadeImpares
     ];
+
 }
+
+     $numeros_usuario = [10, 5, 8, 3, 12, 7];
+     $resultado = estatisticasNumericas($numeros_usuario);
+
+     echo "Números: " . implode(", ", $numeros_usuario) . "<br>";
+     echo "Soma: " . $resultado["soma"] . "<br>";
+     echo "Média: " . $resultado["media"] . "<br>";
+     echo "Maior valor: " . $resultado["maior"] . "<br>";
+     echo "Menor valor: " . $resultado["menor"] . "<br>";
+     echo "Mediana: " . $resultado["mediana"] . "<br>";
+     echo "Quantidade de pares: " . $resultado["pares"] . "<br>";
+     echo "Quantidade de ímpares: " . $resultado["impares"] . "<br>";
+
+?>
