@@ -18,6 +18,16 @@ function estatisticasNumericas($numeros) {
         $mediana = $numerosOrdenados[$posicaoCentral];
     }
 
+    $quantidadePares = 0;
+    $quantidadeImpares = 0;
+
+    foreach ($numeros as $numero){
+        if ($numero % 2 == 0){
+            $quantidadePares++;
+        } else {
+            $quantidadeImpares++;
+        }
+    }
 
     return [
         'soma' => $soma,
