@@ -1,19 +1,34 @@
 <?php
 
-function calcularMedia($numeros) {
-    if (count($numeros) === 0) {
-        return 0;
-    }
-    $soma = array_sum($numeros);
-    return $soma / count($numeros);
-}
+function calcularMedia($notas){
 
-function verificarSituacao($media) {
-    if ($media >= 7) {
-        return "Aprovado";
-    } elseif ($media >= 5) {
-        return "Recuperação";
+    $maiorNota = max($notas);
+    $menorNota = min($notas);
+    $media = array_sum($notas) / count($notas);
+
+    if ($media >= 7){
+        $situacao = "Aprovado";
+    } elseif ($media >= 5){
+        $situacao = "Recuperação";
     } else {
-        return "Reprovado";
+        $situacao = "Reprovado";
     }
+
+    return [
+        "maior_nota" => $maiorNota,
+        "menor_nota" => $menorNota,
+        "media" => $media,
+        "situacao" => $situacao
+    ];
+
 }
+    $notas_usuario = [7.5, 6.0, 8.5, 5.0];
+    $resultado = calcularMedia($notas_usuario);
+ 
+    echo "Notas: " . implode(", ", $notas_usuario) . "<br>";
+    echo "Maior nota: " . $resultado["maior_nota"] . "<br>";
+    echo "Menor nota: " . $resultado["menor_nota"] . "<br>";
+    echo "Média: " . $resultado["media"] . "<br>";
+    echo "Situação final: " . $resultado["situacao"] . "<br>";
+
+?>
