@@ -1,84 +1,85 @@
 <?php
 
-1- function calcularIMC($peso, $altura) {
-    if ($altura <= 0) {
-        return "Altura inválida. A altura deve ser maior que zero.";
-    }
-    $imc = $peso / ($altura * $altura);
-    return round($imc, 2);
+1- function calcularImc($peso, $altura){
+    return $peso / ($altura * $altura);
 }
 
-function classificarIMC($imc) {
-    if ($imc < 18.5) {
-        return "Abaixo do peso";
-    } elseif ($imc >= 18.5 && $imc < 25) {
-        return "Peso normal";
-    } elseif ($imc >= 25 && $imc < 30) {
-        return "Sobrepeso";
-    } else {
-        return "Obesidade";
-    }
+2- function validarEmail($email){
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
 }
 
-2- function validarEmail($email) {
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return true;
-        return "O email é válido.";
-    } else {
-        return false;
-        return "O email é inválido.";
-    }
-}
 
-3- function gerarSenha($tamanho) {
-    $caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=';
-    $senha = '';
-    for ($i = 0; $i < $tamanho; $i++) {
-        $senha .= $caracteres[rand(0, strlen($caracteres) - 1)];
+3- function gerarSenhaAleatoria($tamanho){
+    $caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*";
+    $senha = "";
+
+    for ($i = 0; $i < $tamanho; $i++){
+        $posicao = rand(0, strlen($caracteres) - 1);
+        $senha .= $caracteres[$posicao];
     }
+
     return $senha;
-    return "Esta é a senha aleatoria gerada";
 }
 
-4- function contarVogais($texto) {
+4- function contarVogais($texto){
     $texto = strtolower($texto);
-    $vogais = ['a', 'e', 'i', 'o', 'u'];
-    $contador = 0;
-    for ($i = 0; $i < strlen($texto); $i++) {
-        if (in_array($texto[$i], $vogais)) {
-            $contador++;
+    $vogais = ["a", "e", "i", "o", "u"];
+    $total = 0;
+
+    for ($i = 0; $i < strlen($texto); $i++){
+        if (in_array($texto[$i], $vogais)){
+            $total++;
         }
     }
-    return $contador;
-    return "Esta é a quantidade de vogais existentes no texto informado";
+
+    return $total;
 }
 
-5- function inverterTexto($texto) {
-    $textoInvertido = strrev($texto);
-    return $textoInvertido;
-    return "Este é o texto invertido";
+5- function inverterTexto($texto){
+    return strrev($texto);
 }
 
-6- function calcularIdade($dataNascimento) {
-    $dataNascimento = new DateTime($dataNascimento);
-    $dataAtual = new DateTime();
-    $idade = $dataAtual->diff($dataNascimento)->y;
-    return $idade;
-    return "Esta é a idade calculada a partir da data de nascimento informada";
+6- function calcularIdade($dataNascimento){
+    $nascimento = new DateTime($dataNascimento);
+    $hoje = new DateTime();
+
+    return $hoje->diff($nascimento)->y;
 }
 
-7- function converterMoeda($valor, $moedaOrigem, $moedaDestino) {
-    $taxasConversao = [
-        'USD' => 1,
-        'EUR' => 0.85,
-        'BRL' => 5.25,
-    ];
+7- function converterMoeda($valorEmReais, $cotacao){
+    return $valorEmReais / $cotacao;
+}
 
-    if (!isset($taxasConversao[$moedaOrigem]) || !isset($taxasConversao[$moedaDestino])) {
-        return "Moeda inválida.";
+8- function formatarTelefone($telefone){
+    $numeros = preg_replace("/[^0-9]/", "", $telefone);
+
+    $ddd = substr($numeros, 0, 2);
+    $parteInicial = substr($numeros, 2, 5);
+    $parteFinal = substr($numeros, 7, 4);
+
+    return "($ddd) $parteInicial-$parteFinal";
+}
+
+9- function gerarSaudacao(){
+    $hora = (int) date("H");
+
+    if ($hora < 12){
+        return "Bom dia!";
+    } elseif ($hora < 18){
+        return "Boa tarde!";
+    } else {
+        return "Boa noite!";
     }
-
-    $valorConvertido = ($valor / $taxasConversao[$moedaOrigem]) * $taxasConversao[$moedaDestino];
-    return round($valorConvertido, 2);
-    return "Este é o valor convertido de uma moeda para outra";
 }
+
+10- function validarSenhaForte($senha){
+    $temTamanhoMinimo = strlen($senha) >= 8;
+    $temMaiuscula = preg_match("/[A-Z]/", $senha);
+    $temMinuscula = preg_match("/[a-z]/", $senha);
+    $temNumero = preg_match("/[0-9]/", $senha);
+    $temEspecial = preg_match("/[^A-Za-z0-9]/", $senha);
+
+    return $temTamanhoMinimo && $temMaiuscula && $temMinuscula && $temNumero && $temEspecial;
+}
+
+?>
