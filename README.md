@@ -1,2 +1,1 @@
-# gabarito-lista-php-um
-Primeira Lista de PHP
+# Primeira Lista de PHP
