@@ -1,22 +1,25 @@
 <?php
 
-function gerarSenha($tamanho = 8, $maiusculas = true, $numeros = true, $simbolos = false) {
-    $lmin = 'abcdefghijklmnopqrstuvwxyz';
-    $lmai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $num = '1234567890';
-    $simb = '!@#$%*-';
-    $retorno = '';
-    $caracteres = '';
+function gerarSenha($tamanho){
 
-    $caracteres .= $lmin;
-    if ($maiusculas) $caracteres .= $lmai;
-    if ($numeros) $caracteres .= $num;
-    if ($simbolos) $caracteres .= $simb;
+    $letrasMaiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    $letrasMinusculas = "abcdefghijklmnopqrstuvwxyz";
+    $numeros = "0123456789";
+    $especiais = "!@#$%&*-+";
+    $todosCaracteres = $letrasMaiusculas . $letrasMinusculas . $numeros . $especiais;
+    $quantidadeDisponivel = strlen($todosCaracteres) - 1;
+    $senha = "";
 
-    $len = strlen($caracteres);
-    for ($n = 1; $n <= $tamanho; $n++) {
-        $rand = mt_rand(1, $len);
-        $retorno .= $caracteres[$rand - 1];
+    for ($i = 0; $i < $tamanho; $i++){
+        $posicaoAleatoria = rand(0, $quantidadeDisponivel);
+        $senha .= $todosCaracteres[$posicaoAleatoria];
     }
-    return $retorno;
+
+    return $senha;
+
 }
+
+    $tamanho_usuario = 10;
+    echo "Senha gerada com $tamanho_usuario caracteres: " . gerarSenha($tamanho_usuario) . "<br>";
+
+?>
