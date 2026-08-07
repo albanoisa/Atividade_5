@@ -1,7 +1,7 @@
 <?php
 
 1- function calcularImc($peso, $altura){
-    retur $peso / ($altura * $altura);
+    return $peso / ($altura * $altura);
 }
 
 2- function validarEmail($email){
