@@ -12,6 +12,13 @@ function estatisticasNumericas($numeros) {
 
     $posicaoCentral = floor($quantidade / 2);
 
+     if ($quantidade % 2 == 0){
+        $mediana = ($numerosOrdenados[$posicaoCentral - 1] + $numerosOrdenados[$posicaoCentral]) / 2;
+    } else {
+        $mediana = $numerosOrdenados[$posicaoCentral];
+    }
+
+
     return [
         'soma' => $soma,
         'media' => $media,
