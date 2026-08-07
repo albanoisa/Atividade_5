@@ -1,24 +1,50 @@
 <?php
 
-function analisarNumero($numero) {
-    if ($numero % 2 === 0) {
-        return "O número é par.";
+  function analisarNumero($numero){
+
+    if ($numero % 2 == 0){
+        $paridade = "Par";
     } else {
-        return "O número é ímpar.";
+        $paridade = "Ímpar";
     }
 
-    if ($numero > 0) {
-        return "O número é primo.";
+    $ehPrimo = true;
+
+    if ($numero < 2){
+        $ehPrimo = false;
     } else {
-        return "O número não é primo.";
+        for ($i = 2; $i < $numero; $i++){
+            if ($numero % $i == 0){
+                $ehPrimo = false;
+                break;
+            }
+        }
     }
 
-    if ($numero > 0 && $numero % 2 === 0) {
-        return "O número é perfeito.";
-    } elseif ($numero < 0) {
-        return "O número não é perfeito.";
-    } else {
-        return "O número é zero.";
+    $somaDivisores = 0;
+
+    for ($i = 1; $i < $numero; $i++){
+        if ($numero % $i == 0){
+            $somaDivisores += $i;
+        }
     }
+
+    $ehPerfeito = ($somaDivisores == $numero && $numero > 0);
+
+    return [
+        "paridade" => $paridade,
+        "primo" => $ehPrimo ? "Sim" : "Não",
+        "perfeito" => $ehPerfeito ? "Sim" : "Não"
+    ];
+
 }
 
+    $numero_usuario = 28;
+    $resultado = analisarNumero($numero_usuario);
+
+    echo "Número analisado: $numero_usuario <br>";
+    echo "Paridade: " . $resultado["paridade"] . "<br>";
+    echo "É primo? " . $resultado["primo"] . "<br>";
+    echo "É perfeito? " . $resultado["perfeito"] . "<br>";
+
+?>
