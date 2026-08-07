@@ -2,9 +2,11 @@
 
 function estatisticasNumericas($numeros) {
     $soma = array_sum($numeros);
-    $media = $soma / count($numeros);
-    $maior = max($numeros);
-    $menor = min($numeros);
+    $quantidade = count($numeros);
+    $media = $soma / $quantidade;
+    $maiorValor = max($numeros);
+    $menorValor = min($numeros);
+
 
     return [
         'soma' => $soma,

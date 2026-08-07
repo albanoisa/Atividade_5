@@ -5,7 +5,7 @@ presa de tecnologia está desenvρίνηοδο με 31stone, pare tratamento de 
 //completamente invertido.
 ALE DISRO, exiba quantidade de caracteres, existentes na string original.
 function inverterTexto($texto)[
-// stzrev() inverte byte a byte, o que quebra acentos caracteres especials
+
 UTF-l, letras coma letras como ç'ta ocupan mois de 1 byte).
 // Por isso Reparamos o texto en un array de caracteres de CIM
 // preg split() usando a flag (Unicode/UTF-8).
