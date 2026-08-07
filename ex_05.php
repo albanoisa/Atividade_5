@@ -35,14 +35,14 @@ function analisarTexto($texto){
 
 }
 
-$texto_usuario = "Estudar PHP todos os dias é o caminho para o sucesso";
+    $texto_usuario = "Estudar PHP todos os dias é o caminho para o sucesso";
 
-$resultado = analisarTexto($texto_usuario);
+    $resultado = analisarTexto($texto_usuario);
 
-echo "Texto: $texto_usuario <br>";
-echo "Quantidade de palavras: " . $resultado["palavras"] . "<br>";
-echo "Quantidade de caracteres: " . $resultado["caracteres"] . "<br>";
-echo "Quantidade de vogais: " . $resultado["vogais"] . "<br>";
-echo "Quantidade de consoantes: " . $resultado["consoantes"] . "<br>";
+    echo "Texto: $texto_usuario <br>";
+    echo "Quantidade de palavras: " . $resultado["palavras"] . "<br>";
+    echo "Quantidade de caracteres: " . $resultado["caracteres"] . "<br>";
+    echo "Quantidade de vogais: " . $resultado["vogais"] . "<br>"; 
+    echo "Quantidade de consoantes: " . $resultado["consoantes"] . "<br>";
 
 ?>
