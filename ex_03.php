@@ -1,10 +1,20 @@
 <?php
 
-function mascararCPF($cpf) {
-    $cpf = preg_replace('/[^0-9]/', '', $cpf);
-    if (strlen($cpf) != 11) {
-        return false;
-    }
-    return substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($cpf, 6, 3) . '-' . substr($cpf, 9, 2);
+function mascararCpf($cpf){
+
+    $somenteNumeros = preg_replace("/[^0-9]/", "", $cpf);
+    $ultimosQuatro = substr($somenteNumeros, -4);
+    $quantidadeOculta = strlen($somenteNumeros) - 4;
+    $mascara = str_repeat("*", $quantidadeOculta);
+    $cpfMascarado = $mascara . $ultimosQuatro;
+
+    return $cpfMascarado;
+
 }
 
+   $cpf_usuario = "123.456.789-10";
+
+   echo "CPF original: $cpf_usuario <br>";
+   echo "CPF mascarado: " . mascararCpf($cpf_usuario) . "<br>";
+
+?>
