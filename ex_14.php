@@ -7,6 +7,10 @@ function estatisticasNumericas($numeros) {
     $maiorValor = max($numeros);
     $menorValor = min($numeros);
 
+    $numerosOrdenados = $numeros;
+    sort($numerosOrdenados);
+
+    $posicaoCentral = floor($quantidade / 2);
 
     return [
         'soma' => $soma,
