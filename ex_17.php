@@ -45,5 +45,6 @@ function encontrarMenorPalavra(array $palavras): string {
     foreach ($palavras as $palavra) { 
         if (strlen($palavra) < strlen($menor)) { 
             $menor = $palavra; } } 
-return $menor; 
+
+            return $menor; 
 }
