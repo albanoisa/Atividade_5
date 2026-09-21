@@ -49,3 +49,23 @@ function contarPalavrasRepetidas(array $palavras): int {
         return $quantidade > 1;
     });
 
+  return count($repetidas);
+}
+
+
+function obterCincoMaisFrequentes(array $palavras): array {
+    $frequencias = array_count_values($palavras);
+    arsort($frequencias);
+    return array_slice($frequencias, 0, 5, true);
+}
+
+
+function formatarPrimeiraLetraMaiuscula(string $texto): string {
+    $textoLimpo = removerEspacosDuplicados($texto);
+    return mb_convert_case($textoLimpo, MB_CASE_TITLE, 'UTF-8');
+}
+
+function processarTexto(string $texto): array {
+    $textoSemEspacos = removerEspacosDuplicados($texto);
+    $palavras = extrairPalavras($texto);
+    $extremos = encontrarExtremosPalavras($palavras);
