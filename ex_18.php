@@ -69,3 +69,22 @@ function processarTexto(string $texto): array {
     $textoSemEspacos = removerEspacosDuplicados($texto);
     $palavras = extrairPalavras($texto);
     $extremos = encontrarExtremosPalavras($palavras);
+
+return [
+        'quantidade_caracteres'        => mb_strlen($texto, 'UTF-8'),
+        'quantidade_palavras'          => count($palavras),
+        'quantidade_frases'            => contarFrases($texto),
+        'palavra_mais_longa'           => $extremos['mais_longa'],
+        'palavra_mais_curta'           => $extremos['mais_curta'],
+        'quantidade_palavras_repetidas'=> contarPalavrasRepetidas($palavras),
+        'cinco_mais_frequentes'        => obterCincoMaisFrequentes($palavras),
+        'texto_sem_espacos_duplicados' => $textoSemEspacos,
+        'texto_formatado'              => formatarPrimeiraLetraMaiuscula($texto)
+    ];
+}
+
+$textoExemplo = "  o   exercício de programação   é um ótimo exercício. A prática constante leva à perfeição!  você concorda? ";
+
+$resultado = processarTexto($textoExemplo);
+
+print_r($resultado);
