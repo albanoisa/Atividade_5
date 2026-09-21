@@ -23,3 +23,29 @@ function encontrarExtremosPalavras(array $palavras): array {
     if (empty($palavras)) {
         return ['mais_longa' => '', 'mais_curta' => ''];
     }
+
+     $maisLonga = $palavras[0];
+    $maisCurta = $palavras[0];
+
+    foreach ($palavras as $palavra) {
+        if (mb_strlen($palavra, 'UTF-8') > mb_strlen($maisLonga, 'UTF-8')) {
+            $maisLonga = $palavra;
+        }
+        if (mb_strlen($palavra, 'UTF-8') < mb_strlen($maisCurta, 'UTF-8')) {
+            $maisCurta = $palavra;
+        }
+    }
+
+    return [
+        'mais_longa' => $maisLonga,
+        'mais_curta' => $maisCurta
+    ];
+}
+
+
+function contarPalavrasRepetidas(array $palavras): int {
+    $frequencias = array_count_values($palavras);
+    $repetidas = array_filter($frequencias, function ($quantidade) {
+        return $quantidade > 1;
+    });
+
