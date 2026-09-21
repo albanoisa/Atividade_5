@@ -20,6 +20,7 @@ $exercicios = [
     ["titulo" => "Exercício 13", "descricao" => "Criptografia Simples", "arquivo" => "ex_13.php"],
     ["titulo" => "Exercício 14", "descricao" => "Estatísticas Numéricas", "arquivo" => "ex_14.php"],
     ["titulo" => "Exercício 15", "descricao" => "Biblioteca de Funções", "arquivo" => "exercicio_15/index.php"],
+    
 ];
 ?>
 <!DOCTYPE html>
