@@ -34,3 +34,11 @@ function classificarSeguranca($tamanho, $qtdMaiusculas, $qtdMinusculas, $qtdNume
 
     return $niveis[$criteriosAtendidos] ?? "Fraca";
 }
+
+function analisarSenha($senha)
+{
+    $qtdMaiusculas = contarMaiusculas($senha);
+    $qtdMinusculas = contarMinusculas($senha);
+    $qtdNumeros = contarNumeros($senha);
+    $qtdEspeciais = contarCaracteresEspeciais($senha);
+    $tamanho = strlen($senha);
