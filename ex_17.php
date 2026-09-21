@@ -35,3 +35,15 @@ function contarCaracteres(string $texto)
         $maior = $palavra;
         } 
     }
+
+     return $maior;
+    
+}
+
+function encontrarMenorPalavra(array $palavras): string { 
+    $menor = $palavras[0]; 
+    foreach ($palavras as $palavra) { 
+        if (strlen($palavra) < strlen($menor)) { 
+            $menor = $palavra; } } 
+return $menor; 
+}
