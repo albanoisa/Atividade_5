@@ -42,3 +42,22 @@ function analisarSenha($senha)
     $qtdNumeros = contarNumeros($senha);
     $qtdEspeciais = contarCaracteresEspeciais($senha);
     $tamanho = strlen($senha);
+
+     return [
+        "senha" => $senha,
+        "tamanho" => $tamanho,
+        "maiusculas" => $qtdMaiusculas,
+        "minusculas" => $qtdMinusculas,
+        "numeros" => $qtdNumeros,
+        "caracteres_especiais" => $qtdEspeciais,
+        "nivel_seguranca" => classificarSeguranca($tamanho, $qtdMaiusculas, $qtdMinusculas, $qtdNumeros, $qtdEspeciais),
+    ];
+}
+
+$relatorio = analisarSenha("Senha@123");
+
+foreach ($relatorio as $chave => $valor) {
+    echo ucfirst(str_replace("_", " ", $chave)) . ": $valor\n";
+}
+
+?>
